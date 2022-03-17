@@ -1,6 +1,8 @@
 from django.db import models
 from django.forms import CharField
-from django.contrib.auth.models import User
+from super_types import models
+
+
 
 
 
@@ -16,4 +18,4 @@ class super(models.Model):
     primary_ability = models.CharField(max_length=255)
     second_ability = models.CharField(max_length=255)
     catchphrase = models.CharField(max_length=255)
-    super_type = models.ForeignKey(User, on_delete=models.CASCADE)
+    super_type = models.ForeignKey(models.Super_Types, on_delete=models.CASCADE)

@@ -4,5 +4,5 @@ from django.forms import CharField
 
 # Create your models here.
 
-class super_type(models.Model):
-    type = CharField(max_length=255)
+class Super_Types(models.Model):
+    type = models.CharField(max_length=255)
