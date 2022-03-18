@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from .serializer import SuperSerializer
 from .models import Supers
+from supers import serializer
 
 
 
@@ -21,4 +22,14 @@ def supers_list(request):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
         
 
+@api_view(['GET'])
+def super_detail(request, pk):
+    try:
+        super = Supers.object.get(pk=pk)
+        serializer = SuperSerializer(super);
+        return Response(serializer.data)
 
+    except Supers.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND);
+    
+    
