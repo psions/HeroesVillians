@@ -7,7 +7,7 @@ from .models import Supers
 
 @api_view(['GET'])
 def supers_list(request):
-    supers = supers.objects.all()
+    supers = Supers.objects.all()
 
     serializer = SuperSerializer(supers, many=True)
 
