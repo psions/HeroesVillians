@@ -19,3 +19,5 @@ class Supers(models.Model):
     second_ability = models.CharField(max_length=255)
     catchphrase = models.CharField(max_length=255)
     super_type = models.ForeignKey(SuperTypes, on_delete=models.CASCADE)
+    
+
