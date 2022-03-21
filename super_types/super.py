@@ -9,3 +9,4 @@ class SuperTypes(models.Model):
     type = models.CharField(max_length=255)
     
     
+    

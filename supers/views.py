@@ -10,8 +10,18 @@ from .models import Supers
 
 @api_view(['GET','POST'])
 def supers_list(request):
-
     if request.method == 'GET':
+
+        hero_name = request.query_params.get('super_type_id')
+        print(hero_name)
+
+        queryset = Supers.objects.all()
+
+        if hero_name:
+            queryset=queryset.filter(hero__name = hero_name)
+
+
+
         supers = Supers.objects.all()
         serializer = SuperSerializer(supers, many=True)
         return Response(serializer.data)
@@ -39,4 +49,4 @@ def super_detail(request, pk):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
   
-    
+   
